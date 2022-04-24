@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../dist/output.css" rel="stylesheet">
     <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRC2Q3XZ6R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CRC2Q3XZ6R');
+    </script>
 </head>
 
 <body>
@@ -13,7 +22,8 @@
         <div class="flex flex-col justify-center items-center space-y-5 absolute top-7 left-0 right-0 mx-auto">
             <div name="prewview" class="flex flex-col items-center justify-center space-y-6">
                 <div class="text-gray-500 font-semibold text-2xl">Background tool for unemployables!</div>
-                <div class="flex justify-center" onclick="copyText()">Donate ETH:<p id="text" class="inline-block">0x628F331343097cCAc4e79d6A78f2f14Bc1Eb939d</p><input class="hidden" id="input"></div>
+                <div class="flex justify-center" onclick="copyText()">Donate ETH:<p id="text" class="inline-block">
+                        0x628F331343097cCAc4e79d6A78f2f14Bc1Eb939d</p><input class="hidden" id="input"></div>
                 <div id="imgPre">
                     <img src="../imgs/test.png" class="rounded-md">
                 </div>
