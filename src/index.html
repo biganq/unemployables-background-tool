@@ -18,12 +18,14 @@
 </head>
 
 <body>
-    <div class="w-screen h-auto relative">
+    <div class="w-screen h-auto relative mx-auto">
         <div class="flex flex-col justify-center items-center space-y-5 absolute top-7 left-0 right-0 mx-auto">
             <div name="prewview" class="flex flex-col items-center justify-center space-y-6">
                 <div class="text-gray-500 font-semibold text-2xl">Background tool for unemployables!</div>
-                <div class="flex justify-center" onclick="copyText()">Donate ETH:<p id="text" class="inline-block">
-                        0x628F331343097cCAc4e79d6A78f2f14Bc1Eb939d</p><input class="hidden" id="input"></div>
+                <div class="flex justify-center text-xs" onclick="copyText()">Donate ETH:
+                    <p id="text" class="inline-block">0x628F331343097cCAc4e79d6A78f2f14Bc1Eb939d</p>
+                    <input class="-z-20 absolute opacity-0" id="input">
+                </div>
                 <div id="imgPre">
                     <img src="../imgs/test.png" class="rounded-md">
                 </div>
@@ -88,12 +90,13 @@
     <script type="text/javascript">
         let drawUmPhone = function () {
             document.getElementById("genPhoneHere").innerText = document.getElementsByName("inputBar")[0].value
-            console.log(document.getElementById("genPhoneHere").innerText)
+            //console.log(document.getElementById("genPhoneHere").innerText)
             html2canvas(document.getElementById("workspace-phone")).then(canvas => {
                 document.getElementById("result-phone").className = "flex flex-col justify-center items-center";
+                //let img2 = document.getElementById("img2");
                 document.getElementById("result-phone").append(canvas)
-                console.log(document.getElementById("result-phone"))
-                console.log(canvas)
+                //console.log(document.getElementById("result-phone"))
+                //console.log(canvas)
             });
         }
         let drawUmPc = function () {
@@ -140,10 +143,12 @@
             addImg('work-phone', url)
         }
         function copyText() {
-            var text = document.getElementById("text").innerText;
+            var copytext = document.getElementById("text").innerText;
             var input = document.getElementById("input");
+            input.value = copytext;
+            input.select();
             document.execCommand("copy"); // 执行浏览器复制命令
-            alert("copy sucessful!");
+            alert("copy sucessful!Donate me :)");
         }
     </script>
 </body>
