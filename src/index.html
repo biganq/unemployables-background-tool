@@ -88,23 +88,39 @@
         </div>
     </div>
     <script type="text/javascript">
+
         let drawUmPhone = function () {
             document.getElementById("genPhoneHere").innerText = document.getElementsByName("inputBar")[0].value
             //console.log(document.getElementById("genPhoneHere").innerText)
             html2canvas(document.getElementById("workspace-phone")).then(canvas => {
                 document.getElementById("result-phone").className = "flex flex-col justify-center items-center";
-                //let img2 = document.getElementById("img2");
-                document.getElementById("result-phone").append(canvas)
-                //console.log(document.getElementById("result-phone"))
-                //console.log(canvas)
+                //canvasToImg
+                let img = new Image();
+                img.setAttribute("crossOrigin", 'Anonymous')
+                img.src = canvas.toDataURL('image/jpeg', 1)
+                img.onload = function (e) {
+                    //document.getElementById("result-phone").append(canvas);
+                    document.getElementById("result-phone").append(img)
+                }
+
+
+
             });
         }
         let drawUmPc = function () {
             document.getElementById("genPcHere").innerText = document.getElementsByName("inputBar")[0].value
             console.log(document.getElementById("genPcHere").innerText)
             html2canvas(document.getElementById("workspace-pc")).then(canvas => {
-                document.getElementById("result-pc").className = "flex flex-col justify-center items-center"
-                document.getElementById("result-pc").append(canvas)
+                document.getElementById("result-pc").className = "flex flex-col justify-center items-center";
+                //canvasToImg
+                let img = new Image();
+                img.setAttribute("crossOrigin", 'Anonymous')
+                img.src = canvas.toDataURL('image/jpeg', 1)
+                img.onload = function (e) {
+                    //document.getElementById("result-phone").append(canvas);
+                    document.getElementById("result-pc").append(img)
+                }
+                //document.getElementById("result-pc").append(canvas)
             });
         }
         document.getElementById("cellPhone").onclick = function () {
@@ -150,6 +166,8 @@
             document.execCommand("copy"); // 执行浏览器复制命令
             alert("copy sucessful!Donate me :)");
         }
+
+        //canvas转图片
     </script>
 </body>
 
