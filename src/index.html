@@ -26,8 +26,16 @@
                     <p id="text" class="inline-block">0x628F331343097cCAc4e79d6A78f2f14Bc1Eb939d</p>
                     <input class="-z-20 absolute opacity-0" id="input">
                 </div>
+                <div>
+                    <div class="flex flex-col justify-center items-center">
+                        step1:upload your #unemployables pfp<br>
+                        step2:type something or not<br>
+                        step3:click the generate button<br>
+                        step4:download the picture.<br>(long press the picture to download if using cellphone)<br>
+                    </div>
+                </div>
                 <div id="imgPre" class="flex justify-center items-center">
-                    <img src="../imgs/test.png" class="">
+                    <img src="../imgs/test.png" class="w-72 h-72">
                 </div>
 
             </div>
@@ -70,7 +78,7 @@
                     <div
                         class="absolute top-0 left-0 right-0 bottom-0 m-auto flex flex-col justify-center items-center">
                         <div id="work-pc">
-                            <img src="../imgs/test.png" class="lg:h-80 lg:w-80 w-80 md-80">
+                            <img src="../imgs/test.png" class="w-24 h-24">
                         </div>
 
                         <div id="genPcHere" class="py-3 font-semibold text-center w-2/3 overflow-hidden ">happy new
@@ -138,7 +146,7 @@
             drawUmPc()
         }
         function addImg(node, url) {
-            var img = new Image('600', '600');
+            var img = new Image('288', '288');
             img.src = url;
             document.getElementById(node).innerHTML = "";
             document.getElementById(node).append(img)
