@@ -31,7 +31,7 @@
                         step2:type something or not<br>
                         step3:click the generate button<br>
                         step4:download the picture.<br>(long press the picture to download if using cellphone)<br>
-                        <span class="text-green-500">As you know, zombies can't talk</span>
+                        <span class="text-green-500 hidden">As you know, zombies can't talk</span>
                     </div>
                 </div>
                 <div id="imgPre" class="flex justify-center items-center">
@@ -59,7 +59,7 @@
                     cellphone</button>
 
                 <button id="singlecolor"
-                    class="py-3 px-5 bg-blue-300 rounded-lg font-semibold shadow hover:bg-lime-500 hover:text-red-500 hover:uppercase" >mutant</button>
+                    class="py-3 px-5 bg-blue-300 rounded-lg font-semibold shadow hover:bg-lime-500 hover:text-red-500 hover:uppercase hidden" >mutant</button>
             </div>
             <div class="absolute -left-510">
                 <div id="workspace-phone" class="bg-neutral-200 w-97.5 h-211 relative">
@@ -91,7 +91,7 @@
             </div>
             <div class="absolute -left-510" id="workspace-single">
                 <div id="work-single">
-                    <img src="../imgs/test.png" class="hue-rotate-60">
+                    <img src="../imgs/test.png">
                 </div>
             </div>
 
@@ -112,7 +112,7 @@
             //document.getElementById("genPcHere").innerText = document.getElementsByName("inputBar")[0].value
             //console.log(document.getElementById("genPcHere").innerText)
             html2canvas(document.getElementById("workspace-single")).then(canvas => {
-                document.getElementById("result-single").className = "flex flex-col justify-center items-center hue-rotate-60";
+                document.getElementById("result-single").className = "flex flex-col justify-center items-center w-20 h-20";
                 //canvasToImg
                 let img = new Image();
                 img.setAttribute("crossOrigin", 'Anonymous')
