@@ -59,6 +59,9 @@ module.exports = {
       },
       zIndex:{
         '100':'100',
+      },
+      grayscale: {
+        50: '50%',
       }
     },
   },
