@@ -34,7 +34,7 @@
                         step2:type something or not<br>
                         step3:click the generate button<br>
                         step4:download the picture.<br>(long press the picture to download if using cellphone)<br>
-                        <span class="text-green-500 ">Because of the CSS framework, the mutation can only be getted using screenshot</span>
+                        <span class="text-green-500 ">Because of the CSS framework, the ”mutation“ can only be getted using screenshot</span>
                     </div>
                 </div>
                 <div id="imgPre" class="flex justify-center items-center">
@@ -182,15 +182,19 @@
         document.getElementById("cellPhone").onclick = function () {
             document.getElementById("result-pc").className = "hidden"
             document.getElementById("result-phone").className = "hidden"
+            document.getElementById("result-single").className = "hidden"
             document.getElementById("result-pc").innerHTML = ""
             document.getElementById("result-phone").innerHTML = ""
+            document.getElementById("result-single").innerHTML = ""
             drawUmPhone()
         }
         document.getElementById("pcWall").onclick = function () {
             document.getElementById("result-pc").className = "hidden"
             document.getElementById("result-phone").className = "hidden"
+            document.getElementById("result-single").className = "hidden"
             document.getElementById("result-pc").innerHTML = ""
             document.getElementById("result-phone").innerHTML = ""
+            document.getElementById("result-single").innerHTML = ""
             drawUmPc()
         }
         document.getElementById("singlecolor").onclick = function () {
