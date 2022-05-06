@@ -10,7 +10,10 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CRC2Q3XZ6R"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'G-CRC2Q3XZ6R');
     </script>
@@ -31,7 +34,7 @@
                         step2:type something or not<br>
                         step3:click the generate button<br>
                         step4:download the picture.<br>(long press the picture to download if using cellphone)<br>
-                        <span class="text-green-500 hidden">As you know, zombies can't talk</span>
+                        <span class="text-green-500 ">Because of the CSS framework, the mutation can only be getted using screenshot</span>
                     </div>
                 </div>
                 <div id="imgPre" class="flex justify-center items-center">
@@ -57,9 +60,11 @@
                 <button id="cellPhone"
                     class="py-3 px-5 bg-blue-300 rounded-lg font-semibold shadow hover:bg-blue-400">for
                     cellphone</button>
+                <button id="test" class="py-3 px-5 bg-blue-300 rounded-lg font-semibold shadow hover:bg-blue-400">for
+                    test</button>
 
                 <button id="singlecolor"
-                    class="py-3 px-5 bg-blue-300 rounded-lg font-semibold shadow hover:bg-lime-500 hover:text-red-500 hover:uppercase hidden" >mutant</button>
+                    class="py-3 px-5 bg-blue-300 rounded-lg font-semibold shadow hover:bg-lime-500 hover:text-red-500 hover:uppercase">mutant</button>
             </div>
             <div class="absolute -left-510">
                 <div id="workspace-phone" class="bg-neutral-200 w-97.5 h-211 relative">
@@ -89,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute -left-510" id="workspace-single">
+            <div class="hue-rotate-60 w-72 h-72 absolute -left-510" id="workspace-single">
                 <div id="work-single">
                     <img src="../imgs/test.png">
                 </div>
@@ -101,18 +106,21 @@
             <div id="result-phone" class="flex flex-col justify-center items-center ">
 
             </div>
-            <div id="result-single" class="flex flex-col justify-center items-center ">
+            <div id="result-single" class="flex flex-col justify-center items-center  ">
 
             </div>
         </div>
     </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
+
     <script type="text/javascript">
         //画单色版图
         let drawSingle = function () {
             //document.getElementById("genPcHere").innerText = document.getElementsByName("inputBar")[0].value
             //console.log(document.getElementById("genPcHere").innerText)
             html2canvas(document.getElementById("workspace-single")).then(canvas => {
-                document.getElementById("result-single").className = "flex flex-col justify-center items-center w-20 h-20";
+                document.getElementById("result-single").className =
+                    "flex flex-col justify-center items-center w-72 h-72 hue-rotate-60";
                 //canvasToImg
                 let img = new Image();
                 img.setAttribute("crossOrigin", 'Anonymous')
@@ -122,7 +130,18 @@
                     document.getElementById("result-single").append(img)
                 }
                 //document.getElementById("result-pc").append(canvas)
+                console.log(img)
             });
+        }
+        //dom-to-image获取滤镜照片
+        //import domtoimage from 'dom-to-image'
+        document.getElementById("test").onclick = function () {
+            console.log("22222")
+            drawSingle2()
+        }
+
+        let drawSingle2 = function () {
+
         }
 
         //画canvas图手机版
@@ -130,7 +149,8 @@
             document.getElementById("genPhoneHere").innerText = document.getElementsByName("inputBar")[0].value
             //console.log(document.getElementById("genPhoneHere").innerText)
             html2canvas(document.getElementById("workspace-phone")).then(canvas => {
-                document.getElementById("result-phone").className = "flex flex-col justify-center items-center";
+                document.getElementById("result-phone").className =
+                    "flex flex-col justify-center items-center";
                 //canvasToImg
                 let img = new Image();
                 img.setAttribute("crossOrigin", 'Anonymous')
@@ -146,7 +166,8 @@
             document.getElementById("genPcHere").innerText = document.getElementsByName("inputBar")[0].value
             console.log(document.getElementById("genPcHere").innerText)
             html2canvas(document.getElementById("workspace-pc")).then(canvas => {
-                document.getElementById("result-pc").className = "flex flex-col justify-center items-center";
+                document.getElementById("result-pc").className =
+                    "flex flex-col justify-center items-center";
                 //canvasToImg
                 let img = new Image();
                 img.setAttribute("crossOrigin", 'Anonymous')
@@ -188,8 +209,9 @@
             document.getElementById(node).innerHTML = "";
             document.getElementById(node).append(img)
         }
+
         function picUpload() {
-            let pic = document.getElementById("pic");//获取input对象
+            let pic = document.getElementById("pic"); //获取input对象
             let image = pic.value;
             let extStart = image.lastIndexOf(".");
             let ext = image.substring(extStart, image.length).toUpperCase();
@@ -197,13 +219,14 @@
                 alert("only for PNG,JPEG,GIF");
                 return false;
             }
-            var file = pic.files[0];//获取input上传的图片信息
-            var url = window.URL.createObjectURL(file);//得到bolb对象路径，赋值给<img>标签的src属性
+            var file = pic.files[0]; //获取input上传的图片信息
+            var url = window.URL.createObjectURL(file); //得到bolb对象路径，赋值给<img>标签的src属性
             addImg('imgPre', url)
             addImg('work-pc', url)
             addImg('work-phone', url)
             addImg('work-single', url)
         }
+
         function copyText() {
             var copytext = document.getElementById("text").innerText;
             var input = document.getElementById("input");
